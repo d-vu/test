@@ -32,7 +32,6 @@ clearSheet.js
 	.
 	.  
 uploadReport.js
-
 ```
 ###  Install dependencies
 - [ ] navigate to the root directory and run `npm install`
@@ -70,6 +69,10 @@ exports.handler = function(event, context, callback) {
         .catch(error => console.log('Error occured: ', error))
 }
 ```
+
+
+![Alt text](/flowchart.png?raw=true "Optional Title")
+
 
 ###  Upload to AWS console
 Compress the project to a .zip file and upload to AWS by following the steps listed in this article.
