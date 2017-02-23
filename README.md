@@ -2,13 +2,7 @@
 
 This project automatically extracts reports from a Google Adsense account, configures the data, and uploads it to a specified Google Sheet.
 
-It is currently configured to pull data from the following Adsense accounts
-- Cbsnews
-- Cnet_newsletters (CNET)
-- cnet_newsletters_test (Deals Now)
-
-to the following Google Sheet,
-https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
+It is currently configured to pull data from the following Adsense accounts, Cbsnews, Cnet_newsletters (CNET) and cnet_newsletters_test (Deals Now) to the following Google Sheet, https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
 
 
 
@@ -18,10 +12,11 @@ https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCw
 - [ ] Install dependencies
 - [ ] Run Program
 
-#### Running remotely
+####  Running remotely via uploding to Amazon Web Services
 - [ ]  Convert to AWS Lambda Function
 - [ ] Upload to AWS console
 
+## Running locally
 ### Import secret files to root level
 Import the `adsenseConfig` folder contaning `config.json` and `credentials.json` at the root level.  The expected folder structure is shown below.
 
@@ -44,6 +39,10 @@ uploadReport.js
 ###  Run Program
 - [ ] Run `node index.js`
 
+##  Running remotely via uploading to Amazon Web Services
+```
+Be sure to import secret files and download depencicis before continuing
+```
 
 ###  Convert to AWS Lambda Function
 
@@ -72,8 +71,14 @@ exports.handler = function(event, context, callback) {
 ```
 
 ###  Upload to AWS console
-Compress the project to a .zip file.
-**Make sure you are compressing**
+Compress the project to a .zip file and upload to AWS by following the steps listed in this article.
+
+http://dev.splunk.com/view/event-collector/SP-CAAAE6Z
+
+```
+Make sure you are compressing at root level and not a the folder level of the project
+```
+
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
