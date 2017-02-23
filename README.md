@@ -50,7 +50,7 @@ Be sure to import the folder containing the secret files and download dependenci
 At the root level of project in the `index.js` file, modify the block of chain promises so that is is wrapped in function called `exports.handler` shown below
 
 Before
-```
+``` js
 getToken('adsenseUser', 'adsense')
 	.then(payload => generateReport('afsh', payload))
 	...
@@ -60,7 +60,7 @@ getToken('adsenseUser', 'adsense')
 
 ```
 After
-```
+``` js
 exports.handler = function(event, context, callback) {
     getToken('adsenseUser', 'adsense')
 	    .then(payload => generateReport('afsh', payload))
