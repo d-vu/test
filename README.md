@@ -2,7 +2,7 @@
 
 This project automatically extracts reports from a Google Adsense account, configures the data, and uploads it to a specified Google Sheet.
 
-It is currently configured to pull data from the following Adsense accounts, Cbsnews, Cnet_newsletters (CNET) and cnet_newsletters_test (Deals Now) to the following Google Sheet, https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
+Currently configured to pull data from Adsense accounts, **Cbsnews**, **Cnet_newsletters** (CNET) and **Cnet_newsletters_test** (Deals Now) to the following Google Sheet, https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
 
 
 
@@ -47,7 +47,7 @@ Be sure to import the folder containing the secret files and download dependenci
 
 ###  Convert to AWS Lambda Function
 
-At the root level of project in the `index.js` file, modify the block of chain promises chain functions so that is is wrapped in function called `exports.handler` shown below
+At the root level of project in the `index.js` file, modify the block of chain promises so that is is wrapped in function called `exports.handler` shown below
 
 Before
 ```
@@ -77,7 +77,7 @@ Compress the project to a .zip file and upload to AWS by following the steps lis
 http://dev.splunk.com/view/event-collector/SP-CAAAE6Z
 
 ```
-Make sure you are compressing at root level and not a the folder level of the project
+Make sure you are compressing at root level and not at the folder level of the project
 ```
 
 ###   Configuring AWS Cloudwatch to run function periodically
