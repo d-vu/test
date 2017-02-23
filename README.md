@@ -22,7 +22,7 @@ Currently it is configured to pull data from Adsense accounts, **Cbsnews**, **Cn
 
 ## Running locally
 ### Import secret files to root level
-Import the `adsenseConfig` folder containing `config.json` and `credentials.json`,  located securely on a separate Google Drive account, to the root level of the project.  The folder can be found in a separate Google Drive account.  The expected folder structure is shown below.
+Import the `adsenseConfig` folder containing `config.json` and `credentials.json`,  located securely on a separate Google Drive account, to the root level of the project. The expected folder structure is shown below.
 
 ```
 adsenseConfig/
@@ -93,6 +93,7 @@ http://docs.aws.amazon.com/lambda/latest/dg/with-scheduledevents-example.html
 The following cron expression is used to have the AWS Lambda function to run every day 4:00 am.
 
 ` 0 4 * * ? *`
+---
 ### Built With
 * [Dateformat](https://maven.apache.org/) - Format dates
 * [Googleapis](https://github.com/google/google-api-nodejs-client) Google's officially supported Node.js client library for accessing Google APIs
