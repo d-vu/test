@@ -4,7 +4,8 @@ This project automatically extracts reports from a Google Adsense account, confi
 
 Currently configured to pull data from Adsense accounts, **Cbsnews**, **Cnet_newsletters** (CNET) and **Cnet_newsletters_test** (Deals Now) to the following Google Sheet, https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
 
-
+## Diagram Flow
+![Alt text](/flowchart.png?raw=true "Flowchart")
 
 ## Getting Started
 #### Running locally
@@ -70,8 +71,6 @@ exports.handler = function(event, context, callback) {
 }
 ```
 
-
-![Alt text](/flowchart.png?raw=true "Optional Title")
 
 
 ###  Upload to AWS console
