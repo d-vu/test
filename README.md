@@ -1,8 +1,10 @@
 # CBSI Revenue Report Automation for Adsense
 
-This project automatically extracts reports from a Google Adsense account, configures the data, and uploads it to a specified Google Sheet.
+This project automatically generates reports from Google Adsense accounts, configures the data, and uploads it to a specified Google Sheet.
 
-Currently configured to pull data from Adsense accounts, **Cbsnews**, **Cnet_newsletters** (CNET) and **Cnet_newsletters_test** (Deals Now) to the following Google Sheet, https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0
+Currently it is configured to pull data from Adsense accounts, **Cbsnews**, **Cnet_newsletters** (CNET) and **Cnet_newsletters_test** (Deals Now) to the following Google Sheet link below.
+
+`https://docs.google.com/spreadsheets/d/1WeXQ8YD2lfkvQHRCeYTggC1K27YdKu6fQ_yyvJCwuTo/edit#gid=0`
 
 ## Diagram Flow
 ![Alt text](/flowchart.png?raw=true "Flowchart")
@@ -20,14 +22,14 @@ Currently configured to pull data from Adsense accounts, **Cbsnews**, **Cnet_new
 
 ## Running locally
 ### Import secret files to root level
-Import the `adsenseConfig` folder contaning `config.json` and `credentials.json` at the root level.  The expected folder structure is shown below.
+Import the `adsenseConfig` folder containing `config.json` and `credentials.json`,  located securely on a separate Google Drive account, to the root level of the project.  The folder can be found in a separate Google Drive account.  The expected folder structure is shown below.
 
 ```
-adsenseConfig
+adsenseConfig/
 	config.json
 	credentials.json
 .gitIgnore
-node_modules
+node_modules/
 clearSheet.js
 	.
 	.
@@ -42,14 +44,14 @@ uploadReport.js
 
 ##  Running remotely via uploading to Amazon Web Services
 ```
-Be sure to import the folder containing the secret files and download dependencies before continuing.
+Be sure to import the folder containing the secret files and to download the dependencies before continuing.
 ```
 
 ###  Convert to AWS Lambda Function
 
 At the root level of project in the `index.js` file, modify the block of chain promises so that is is wrapped in function called `exports.handler` shown below
 
-Before
+**Before**
 ``` js
 getToken('adsenseUser', 'adsense')
 	.then(payload => generateReport('afsh', payload))
@@ -59,7 +61,7 @@ getToken('adsenseUser', 'adsense')
 	.catch(error => console.log('Error occured: ', error))
 
 ```
-After
+**After**
 ``` js
 exports.handler = function(event, context, callback) {
     getToken('adsenseUser', 'adsense')
@@ -82,12 +84,16 @@ http://dev.splunk.com/view/event-collector/SP-CAAAE6Z
 Make sure you are compressing at root level and not at the folder level of the project
 ```
 
-###   Configuring AWS Cloudwatch to run function periodically
+###   Configuring AWS Cloudwatch to run the AWS Lambda function periodically
 
-tbd
+Follow the the steps listed from the following amazon documentation.
 
-## Built With
+http://docs.aws.amazon.com/lambda/latest/dg/with-scheduledevents-example.html
 
+The following cron expression is used to have the AWS Lambda function to run every day 4:00 am.
+
+` 0 4 * * ? *`
+### Built With
+* [Dateformat](https://maven.apache.org/) - Format dates
 * [Googleapis](https://github.com/google/google-api-nodejs-client) Google's officially supported Node.js client library for accessing Google APIs
-* [Dateformat](https://maven.apache.org/) - Format date
 * [Request](https://rometools.github.io/rome/) - Handles HTTP requests
